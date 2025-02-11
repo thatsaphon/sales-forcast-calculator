@@ -23,11 +23,12 @@ export default function Home() {
       monthlyExpense: number
     }[]
   >([])
+
   return (
     <div className='w-screen h-screen flex flex-col p-4'>
       <h1 className='text-3xl'>วางแผนการเงิน</h1>
       <form
-        className='flex flex-col space-y-4 my-2 w-[500px] border rounded-md p-4'
+        className='flex flex-col space-y-4 my-2 max-w-[500px] border rounded-md p-4'
         action={(formData) => {
           const initialAmount = formData.get('initial-amount') as string
           const dailySales = formData.get('daily-sales') as string
@@ -53,7 +54,7 @@ export default function Home() {
         <Input type='number' name='monthly-expense' />
         <Button type='submit'>เพิ่ม</Button>
       </form>
-      <Table className='max-w-[800px]'>
+      <Table className='lg:max-w-[800px]'>
         <TableHeader>
           <TableRow>
             <TableHead className='text-center'>ลำดับ</TableHead>
@@ -113,14 +114,6 @@ export default function Home() {
           ))}
         </TableBody>
       </Table>
-      {/* <div>
-        {scenarios.map((scenario, index) => (
-          <div key={index} className=''>
-            <p>เงินลงทุน: {scenario.initialAmount}</p>
-            <p>ยอดขายต่อวัน: {scenario.dailySales}</p>
-          </div>
-        ))}
-      </div> */}
     </div>
   )
 }
